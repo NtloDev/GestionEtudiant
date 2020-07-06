@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{'css/style.css'}}"/>
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% endblock %}
+{% block body %}
+<h3>Ajouter une chambre</h3>
+<div class="row bg-info">
+<div class="col-4 text-center">
+</div>
+<div class="col-4 text-center">
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<input type="submit" value="Ajouter" class="btn btn-info">
+{{ form_end(form) }}
+</div>
+{% endblock %}
