@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\EtudiantRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +29,11 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *      message = "Prenom invalide"
+     * )
      */
     private $NomEtudiant;
 
