@@ -24,6 +24,11 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "^[a-zA-Z]+$",
+     *      message = "Prenom invalide"
+     * )
      */
     private $PrenomEtudiant;
 
@@ -39,11 +44,18 @@ class Etudiant
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $MailEtudiant;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Regex(
+     * pattern = "/^7[05678]{1}[0-9]{7}+$/",
+     * message = "Le numero '{{ value }}' est invalide"
+     * )
      */
     private $TelEtudiant;
 

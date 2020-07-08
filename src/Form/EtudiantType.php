@@ -14,7 +14,7 @@ class EtudiantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('MatriculeEtudiant')
+           // ->add('MatriculeEtudiant')
             ->add('PrenomEtudiant')
             ->add('NomEtudiant')
             ->add('MailEtudiant')

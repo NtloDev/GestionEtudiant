@@ -13,6 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EtudiantController extends AbstractController
 {
+
+    public function Matgenerate($NomEtudiant,$PrenomEtudiant){
+        $annee = date('Y');
+        $rand=rand();
+        $rand = substr($rand,0,4);
+        $firsts = strtoupper(substr($NomEtudiant,0,2));
+        $lasts = strtoupper(substr($PrenomEtudiant,-2));
+        return $matricule = $annee.$firsts.$lasts.$rand;
+
+    }
+
     /**
      * @Route("/etudiant", name="etudiant")
      */
@@ -33,6 +44,7 @@ class EtudiantController extends AbstractController
             new NotBlank()
         ]]);
         $form->handleRequest($request);
+        $etudiant->setMatriculeEtudiant($this->Matgenerate($etudiant->getNomEtudiant(),$etudiant->getPrenomEtudiant()));
         if($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiant);
