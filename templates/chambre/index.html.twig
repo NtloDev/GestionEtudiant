@@ -24,8 +24,9 @@
                 <td><a href="/chambre/delete/{{chambre.id}}" class="btn btn-danger">Supprimer</a></td>
             </tr>
         {% endfor %}
+        
     <tbody>
  </table>
-
+{{knp_pagination_render(chambres)}}
  </div>
 {% endblock %}
